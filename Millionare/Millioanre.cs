@@ -32,7 +32,7 @@ namespace Millionare
     }
     class Millioanre
     {
-        public static bool menuLoop = true;
+        public static bool menuLoop = true,gameloop=true;
         static void Main()
         {
             Console.SetWindowSize(160, 40);                     //Sets window size
@@ -107,10 +107,10 @@ namespace Millionare
                 Console.WriteLine("         \\  /\\  /  | | | | (_) |  \\ V  V / (_| | | | | |_\\__ \\ | || (_) | | |_) |  __/ | (_| | | |  | | | | | | (_) | | | | (_| | | | |  __/  |_|  ");
                 Console.WriteLine("          \\/  \\/   |_| |_|\\___/    \\_/\\_/ \\__,_|_| |_|\\__|___/  \\__\\___/  |_.__/ \\___|  \\__,_| |_|  |_|_|_|_|_|\\___/|_| |_|\\__,_|_|_|  \\___|  (_)  \n\n");
                 options();
-                string input = Console.ReadLine();
-                if (input != "")
+                string Uinput = Console.ReadLine();
+                if (Uinput != "")
                 {
-                    switch (input)
+                    switch (Uinput)
                     {
                         case "1":
                             Console.Clear();
@@ -140,7 +140,7 @@ namespace Millionare
                             Environment.Exit(-1);
                             break;
                         default:
-                            Console.Write("\n\n\t\t\t\t\t\t  Please enter a valid option");
+                            Console.Write("\n\n\t\t\t\t\t\t  Please enter a valid option"); //if invalid input is inputted
                             Thread.Sleep(1000);
                             Console.Clear();
                             break;
@@ -351,7 +351,7 @@ namespace Millionare
             Console.WriteLine("Press Enter to Exit");
             Console.ReadLine();
         }
-        
+
         public static void game(names[] People, string[] Finalists, string[] Chosen, questionare[] answers, money[] rewards)
         {
             int count = 0;
@@ -369,7 +369,7 @@ namespace Millionare
                 Console.WriteLine($" {answers[count].des1}");
 
                 Console.Write("\n  :");
-                Uinput=Console.ReadLine().ToUpper(); //converts user input into uppercase
+                Uinput = Console.ReadLine().ToUpper(); //converts user input into uppercase
                 if (Uinput == answers[count].ans) //if Uninput contains correct answer the following will be displayed
                 {
                     Console.WriteLine($"\n {answers[count].des1}");
@@ -383,14 +383,13 @@ namespace Millionare
                     Console.WriteLine($" {answers[count].des1}");
                     Console.WriteLine("  That is the wrong answer");
                     Console.WriteLine($"  The correct answer was {answers[count].ans}");
-                    Console.WriteLine($"  You are going home with $ {rewards[i-1].reward}");
+                    Console.WriteLine($"  You are going home with $ {rewards[i - 1].reward}");
                     Console.WriteLine($" {answers[count].des2}\n");
                     Thread.Sleep(3000);
-                    menu(People, Finalists, Chosen, answers,rewards); //retuns user back to the menu
+                    menu(People, Finalists, Chosen, answers, rewards); //retuns user back to the menu
                 }
             }
         }
-        
     }
 }
 
